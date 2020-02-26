@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+<link rel="stylesheet" th:href="@{/css/header.css}"/>
+</head>
+<body>
+	<div class="wrapper"><h1 class="hotelname">KaWa Hotel</h1>
+		<header>
+			<script  type="text/javascript" src ="/js/header.js"></script>
+		</header>
+	</div>	
+	
+	<div class="wrap">
+		<div>
+			First Name<br>
+			<input type="text" name="firstname"><br>
+			Last Name<br>
+			<input type="text" name="lastname"><br>
+			Email<br>
+			<input type="email" name="email"><br>
+			Comment<br>
+			<textarea rows="6" cols="18"></textarea><br>
+			
+		</div>
+	</div>
+	
+	<script>
+		$(function(){
+  			$('a').each(function() {
+    			if ($(this).prop('href') == window.location.href) {
+      			$(this).addClass('current');
+    			}
+  			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+
+<link rel="stylesheet" th:href="@{/css/header.css}"/>
+</head>
+<body>
+	<div class="wrapper"><h1 class="hotelname">KaWa Hotel</h1>
+		<header>
+			<script  type="text/javascript" src ="/js/header.js"></script>
+		</header>
+	</div>	
+	<div class="wrap">
+	<form action="#" th:action="@{/save}" th:object="${client}" method="post">
+		<table style="margin-top: 150px">
+			<tr>
+				<td>Check In: <input type="date" id="checkin" name="checkin" required></td>
+				<td>Check Out: <input type="date" name="checkout" required></td>
+				<td>People: <input type="text" name="people" onchange="calculateAmount(this.value)" required></td>
+				<td>USD 100 Per night</td>
+				<td>TotalPrice<input type="text" id="totalprice" name="totalprice" readonly></td>
+			</tr>
+		</table><br/>
+		<table>
+			<tr>
+				<td>First Name: <input type="text" name="firstname" required></td>
+				<td>Last Name: <input type="text" name="lastname" required></td>
+			</tr>
+		</table><br/>
+		<table>
+			<tr>
+				<td><input type="submit" value="Book"></td>
+			</tr>
+		</table>
+	</form>
+	</div>
+	<script>
+		function calculateAmount(val){
+			const inDate= document.getElementsByName("checkin")[0].value;
+			const outDate = document.getElementsByName('checkout')[0].value;
+			var date1 = new Date(inDate);
+			var date2 = new Date(outDate);
+			var Differenceintimes=date2.getTime()-date1.getTime();
+			var Differenceindays = Differenceintimes/(1000*3600*24);
+			if(inDate==""&&outDate==""){
+				alert("Please Enter inDate and outDate also"); 
+				location.reload();
+			}
+			else if(inDate== ""){
+				alert("Please Enter inDate also"); 
+				location.reload();
+			}else if(outDate == ""){
+				alert("Please Enter outDate also"); 
+				location.reload();
+			}else if(Differenceindays <= 0){
+				alert("Please Enter Correct Date"); 
+				location.reload();
+			}
+			var totalamount = Differenceindays*(100+20*(val-1));
+			var divobj=document.getElementById('totalprice');
+			divobj.value=totalamount;
+		}
+	</script>
+	<script>
+		$(function(){
+  			$('a').each(function() {
+    			if ($(this).prop('href') == window.location.href) {
+      			$(this).addClass('current');
+    			}
+  			});
+		});
+	</script>
+	
+</body>
+</html>
