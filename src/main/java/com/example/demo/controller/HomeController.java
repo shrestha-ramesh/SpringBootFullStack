@@ -1,21 +1,28 @@
 package com.example.demo.controller;
 
+import javax.annotation.Resource;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.client.Client;
 import com.example.demo.client.ClientService;
+import com.example.demo.reviews.Reviews;
+import com.example.demo.reviews.ReviewsService;
+
 
 @Controller
 public class HomeController {
 	
 	@Autowired
 	private ClientService clientService;
+	
+	@Autowired
+	private ReviewsService reviewsService;
 	
 	@RequestMapping(value= {"/","/home.html"})
 	public String home() {
@@ -38,14 +45,22 @@ public class HomeController {
 		return "contactus";
 	}
 	@RequestMapping(value="/reviews.html")
-	public String reviews() {
+	public String reviews(Model model) {
+		List<Reviews> listReviews = reviewsService.listAll();
+		model.addAttribute("listReviews", listReviews);
 		return "reviews";
 	}
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String saveClient(@ModelAttribute("client") Client client) {
 		clientService.saveClient(client);
-		
 		return "images";
+	}
+	@RequestMapping(value="/saveReviews", method=RequestMethod.POST)
+	public String saveReviews(@ModelAttribute("reviews") Reviews reviews, Model model) {
+		reviewsService.saveReviews(reviews);
+		List<Reviews> listReviews = reviewsService.listAll();
+		model.addAttribute("listReviews", listReviews);
+		return "reviews";
 	}
 //	@RequestMapping(value="/client/update", method = RequestMethod.PUT)
 //	@ResponseBody

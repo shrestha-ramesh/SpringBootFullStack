@@ -20,24 +20,24 @@
 	</div>	
 	<div class="wrap">
 	<form action="#" th:action="@{/save}" th:object="${client}" method="post">
-		<table style="margin-top: 150px">
+		<table style="margin-top: 150px;" class="tap">
 			<tr>
-				<td>Check In: <input type="date" id="checkin" name="checkin" required></td>
-				<td>Check Out: <input type="date" name="checkout" required></td>
-				<td>People: <input type="text" name="people" onchange="calculateAmount(this.value)" required></td>
-				<td>USD 100 Per night</td>
-				<td>TotalPrice<input type="text" id="totalprice" name="totalprice" readonly></td>
+				<td class="tap_td">Check In: <input type="date" id="checkin" name="checkin" required></td>
+				<td class="tap_td">Check Out: <input type="date" name="checkout" required></td>
+				<td class="tap_td">People: <input type="text" name="people" onchange="calculateAmount(this.value)" required></td>
+				<td class="tap_td">USD 100 Per night</td>
+				<td class="tap_td">TotalPrice<input type="text" id="totalprice" name="totalprice" readonly></td>
 			</tr>
 		</table><br/>
-		<table>
+		<table class="tap">
 			<tr>
-				<td>First Name: <input type="text" name="firstname" required></td>
-				<td>Last Name: <input type="text" name="lastname" required></td>
+				<td class="tap_td">First Name: <input type="text" name="firstname" required></td>
+				<td class="tap_td">Last Name: <input type="text" name="lastname" required></td>
 			</tr>
 		</table><br/>
-		<table>
+		<table class="tap">
 			<tr>
-				<td><input type="submit" value="Book"></td>
+				<td class="tap_td"><input type="submit" value="Book"></td>
 			</tr>
 		</table>
 	</form>

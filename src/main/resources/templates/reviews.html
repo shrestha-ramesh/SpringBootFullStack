@@ -19,26 +19,37 @@
 	</div>	
 	
 	<div class="wrap">
-		<div>
+	<form action="#" th:action="@{/saveReviews}" th:object="${reviews}" method="post">
+		<div style="float:left;">
 			First Name<br>
-			<input type="text" name="firstname"><br>
+			<input style="color:black;" type="text" name="firstname"><br>
 			Last Name<br>
-			<input type="text" name="lastname"><br>
+			<input style="color:black;" type="text" name="lastname"><br>
 			Email<br>
-			<input type="email" name="email"><br>
+			<input style="color:black;" type="email" name="email"><br>
 			Comment<br>
-			<textarea rows="6" cols="18"></textarea><br>
-			
+			<textarea style="color:black;" rows="6" cols="18" name="comment"></textarea><br>
+			<input style="color:black;" type="submit" name="submit" id ="submit" value="Submit">
 		</div>
+	</form>
+	<div style="margin-left: 300px;">
+		<table style="border-spacing: 2px;">
+			<tr th:each="reviews : ${listReviews}">
+				<td style="width:60px;"th:text = "${reviews.firstname}"></td>
+				<td style="width:100px;"th:text = "${reviews.lastname}"></td>
+				<td th:text = "${reviews.comment}"></td>
+			</tr>
+		</table>
 	</div>
-	
+	</div>
 	<script>
 		$(function(){
   			$('a').each(function() {
-    			if ($(this).prop('href') == window.location.href) {
-      			$(this).addClass('current');
-    			}
-  			});
+    			if ($(this).prop('href') == win
+	</script>
+	<script>
+		$(document).ready(function () {     
+    		$('.submit').load('./reviews.html');
 		});
 	</script>
 </body>
