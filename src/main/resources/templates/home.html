@@ -4,44 +4,50 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-<link rel="stylesheet" th:href="@{/css/header.css}"/>
+<link rel="stylesheet" th:href="@{/css/header.css}">
+
 </head>
+
 <body>
-	<div class="wrapper"><h1 class="hotelname">KaWa Hotel</h1>
-		<header>
-			<script  type="text/javascript" src ="/js/header.js"></script>
-		</header>
-	</div>	
-	<div class="wrap">
+	<header>
+		<script  type="text/javascript" src ="/js/header.js"></script>
+	</header><br>
 	<form action="#" th:action="@{/save}" th:object="${client}" method="post">
-		<table style="margin-top: 150px;" class="tap">
-			<tr>
-				<td class="tap_td">Check In: <input type="date" id="checkin" name="checkin" required></td>
-				<td class="tap_td">Check Out: <input type="date" name="checkout" required></td>
-				<td class="tap_td">People: <input type="text" name="people" onchange="calculateAmount(this.value)" required></td>
-				<td class="tap_td">USD 100 Per night</td>
-				<td class="tap_td">TotalPrice<input type="text" id="totalprice" name="totalprice" readonly></td>
-			</tr>
-		</table><br/>
-		<table class="tap">
-			<tr>
-				<td class="tap_td">First Name: <input type="text" name="firstname" required></td>
-				<td class="tap_td">Last Name: <input type="text" name="lastname" required></td>
-			</tr>
-		</table><br/>
-		<table class="tap">
-			<tr>
-				<td class="tap_td"><input type="submit" value="Book"></td>
-			</tr>
-		</table>
-	</form>
-	</div>
+		<div class="form-row">
+    		<div class="form-group col-md-3">
+      			<label for="checkin">Check In</label>
+      			<input type="date" class="form-control" id="checkin" name="checkin"required>
+    		</div>
+    		
+    		<div class="form-group col-md-3">
+      			<label for="checkout">Check Out</label>
+     			 <input type="date" class="form-control" id="checkout" name="checkout"required>
+    		</div>
+    		<div class="form-group col-md-3">
+      			<label for="people">People</label>
+     			 <input type="text" class="form-control" id="people" name="people" onchange="calculateAmount(this.value)"required>
+    		</div>
+    		<div class="form-group col-md-3">
+      			<label for="checkout">Total Price</label>
+     			 <input type="text" class="form-control" id="totalprice" name="totalprice" readonly>
+    		</div>
+  		</div>
+  		<div class="form-row">
+  			<div class="form-group col-md-6">
+    			<label for="firstname">First Name</label>
+    			<input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name"required>
+  			</div>
+  			<div class="form-group col-md-6">
+    			<label for="lastname">Last Name</label>
+   				 <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name"required>
+  			</div>
+  		</div>
+
+  		<button type="submit" class="btn btn-primary" onclick="myFunction()">Book</button>
+  	</form>
 	<script>
 		function calculateAmount(val){
 			const inDate= document.getElementsByName("checkin")[0].value;
@@ -69,15 +75,8 @@
 			divobj.value=totalamount;
 		}
 	</script>
-	<script>
-		$(function(){
-  			$('a').each(function() {
-    			if ($(this).prop('href') == window.location.href) {
-      			$(this).addClass('current');
-    			}
-  			});
-		});
-	</script>
-	
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

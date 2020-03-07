@@ -24,6 +24,8 @@ public class Reviews {
 	private String email;
 	@Column(name="Reviews_comment")
 	private String comment;
+	@Column(name="Reviews_gender")
+	private String gender;
 	
 	public int getId() {
 		return id;
@@ -55,5 +57,10 @@ public class Reviews {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 }

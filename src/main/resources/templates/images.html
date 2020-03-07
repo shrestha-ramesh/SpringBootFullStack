@@ -4,39 +4,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-
-
-<link rel="stylesheet" th:href="@{/css/header.css}"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/header.css}">
 </head>
-<body>
 
-	<div class="wrapper"><h1 class="hotelname">KaWa Hotel</h1>
-		<header>
-			<script  type="text/javascript" src ="/js/header.js"></script>
-		</header>
-	</div>	
+<body>
+	<header>
+		<script  type="text/javascript" src ="/js/header.js" ></script>
+	</header>
+	<br>
 	
-	<div class="wrap">
-		<img src="/img/1.jpg" class="pic">
-		<img src="/img/2.jpg" class="pic">
-		<img src="/img/3.jpeg" class="pic">
-		<img src="/img/4.jpeg" class="pic">
-		<img src="/img/5.jpg" class="pic">
-		<img src="/img/6.jpg" class="pic">
+	<div>
+		<img src="/img/1.jpg" alt="Nature" class="responsive" width="600" height="400">
+		<img src="/img/2.jpg" alt="Nature" class="responsive" width="600" height="400">
+		<img src="/img/3.jpeg" alt="Nature" class="responsive" width="600" height="400">
+		<img src="/img/4.jpeg" alt="Nature" class="responsive" width="600" height="400">
+		<img src="/img/5.jpg" alt="Nature" class="responsive" width="600" height="400">
+		<img src="/img/6.jpg" alt="Nature" class="responsive" width="600" height="400">
 	</div>
-	<script>
-	
-		$(function(){
-  			$('a').each(function() {
-    			if ($(this).prop('href') == window.location.href) {
-      			$(this).addClass('current');
-    			}
-  			});
-		});
-	</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

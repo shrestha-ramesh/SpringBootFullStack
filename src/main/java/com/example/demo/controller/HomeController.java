@@ -53,7 +53,7 @@ public class HomeController {
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String saveClient(@ModelAttribute("client") Client client) {
 		clientService.saveClient(client);
-		return "images";
+		return "home";
 	}
 	@RequestMapping(value="/saveReviews", method=RequestMethod.POST)
 	public String saveReviews(@ModelAttribute("reviews") Reviews reviews, Model model) {
